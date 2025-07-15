@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-4 font-sans text-gray-800">
+
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-6">Task Tracker</h1>
+
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+      <div class="flex gap-2 w-full sm:w-auto flex-grow">
+        <select id="searchField" class="p-2 border rounded">
+          <option value="id">Task ID</option>
+          <option value="name">Task Name</option>
+          <option value="status">Status</option>
+          <option value="startDate">Start Date</option>
+          <option value="endDate">End Date</option>
+        </select>
+        <input id="searchBox" type="text" placeholder="Search..." oninput="renderTasks()" class="p-2 border rounded flex-grow"/>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="openModal()" class="bg-blue-500 text-white px-4 py-2 rounded">+ Add Task</button>
+        <button onclick="downloadTasksAsJSON()" class="bg-green-500 text-white px-4 py-2 rounded">⬇ JSON</button>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto bg-white shadow rounded">
+      <table class="w-full text-sm">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="p-2">ID</th>
+            <th class="p-2">Name</th>
+            <th class="p-2">Subtask</th>
+            <th class="p-2">Status</th>
+            <th class="p-2">Start</th>
+            <th class="p-2">End</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="taskTableBody" class="divide-y"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Add Modal -->
+  <div id="taskModal" class="fixed inset-0 bg-black bg-opacity-30 hidden flex items-center justify-center">
+    <div class="bg-white p-4 rounded max-w-sm w-full">
+      <h2 class="text-lg font-semibold mb-2">Add Task</h2>
+      <input id="modalTaskName" type="text" placeholder="Task Name" class="p-2 border w-full mb-2 rounded"/>
+      <input id="modalSubtask" type="text" placeholder="Subtask (optional)" class="p-2 border w-full mb-2 rounded"/>
+      <select id="modalStatus" class="p-2 border w-full mb-2 rounded">
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <input id="modalStartDate" type="date" class="p-2 border w-full mb-2 rounded"/>
+      <input id="modalEndDate" type="date" class="p-2 border w-full mb-4 rounded"/>
+      <div class="flex justify-end gap-2">
+        <button onclick="submitModalTask()" class="bg-blue-500 text-white px-3 py-1 rounded">Add</button>
+        <button onclick="closeModal()" class="bg-gray-400 text-white px-3 py-1 rounded">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="fixed inset-0 bg-black bg-opacity-30 hidden flex items-center justify-center">
+    <div class="bg-white p-4 rounded max-w-sm w-full">
+      <h2 class="text-lg font-semibold mb-2">Edit Task</h2>
+      <input type="hidden" id="editTaskId"/>
+      <input id="editTaskName" type="text" class="p-2 border w-full mb-2 rounded"/>
+      <input id="editSubtask" type="text" class="p-2 border w-full mb-2 rounded"/>
+      <select id="editStatus" class="p-2 border w-full mb-2 rounded">
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <input id="editStartDate" type="date" class="p-2 border w-full mb-2 rounded"/>
+      <input id="editEndDate" type="date" class="p-2 border w-full mb-4 rounded"/>
+      <div class="flex justify-end gap-2">
+        <button onclick="submitEditTask()" class="bg-yellow-500 text-white px-3 py-1 rounded">Save</button>
+        <button onclick="closeEditModal()" class="bg-gray-400 text-white px-3 py-1 rounded">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div id="deleteModal" class="fixed inset-0 bg-black bg-opacity-30 hidden flex items-center justify-center">
+    <div class="bg-white p-4 rounded max-w-sm w-full">
+      <h2 class="text-lg font-semibold mb-2 text-red-600">Confirm Delete</h2>
+      <p id="deleteMessage" class="mb-4">Are you sure you want to delete this task?</p>
+      <div class="flex justify-center gap-4">
+        <button onclick="confirmDelete()" class="bg-red-600 text-white px-4 py-1 rounded">Yes</button>
+        <button onclick="closeDeleteModal()" class="bg-gray-400 text-white px-4 py-1 rounded">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
