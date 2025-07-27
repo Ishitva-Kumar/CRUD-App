@@ -58,15 +58,16 @@
 
   <table class="min-w-full text-sm">
     <thead class="bg-purple-300 text-purple-800 uppercase text-xs tracking-wider border-b-2 border-purple-400">
-      <tr>
-        <th class="py-4 px-6 text-left">Task ID</th>
-        <th class="py-4 px-6 text-left">Task Name</th>
-        <th class="py-4 px-6 text-left">Subtask</th>
-        <th class="py-4 px-6 text-left">Status</th>
-        <th class="py-4 px-6 text-left">Start Date</th>
-        <th class="py-4 px-6 text-left">End Date</th>
-        <th class="py-4 px-6 text-left">Action</th>
-      </tr>
+      <tr class="bg-purple-200 text-purple-900 text-sm font-semibold">
+  <th class="py-4 px-6 text-center w-[10%]">Task ID</th>
+  <th class="py-4 px-6 text-center w-[18%]">Task Name</th>
+  <th class="py-4 px-6 text-center w-[18%]">Subtask</th>
+  <th class="py-4 px-6 text-center w-[12%]">Status</th>
+  <th class="py-4 px-6 text-center w-[14%]">Start Date</th>
+  <th class="py-4 px-6 text-center w-[14%]">End Date</th>
+  <th class="py-4 px-6 text-center w-[26%]">Action</th>
+</tr>
+
     </thead>
     <tbody id="taskTableBody" class="divide-y divide-gray-200 text-gray-700 text-left">
     </tbody>
@@ -96,7 +97,7 @@
   </div>
 
   <div id="editSubtaskModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-  <div class="glass p-8 rounded-2xl shadow-3xl w-full max-w-md mx-auto slide-down border border-white border-opacity-30">
+  <div class="glass p-8 rounded-2xl shadow-3xl w-full max-w-md mx-auto slide-down border border-white border-opacity-30 ">
     <h3 class="text-2xl font-bold mb-5 text-center text-yellow-600">Edit Subtask</h3>
     
     <input type="hidden" id="editSubtaskTaskId">
@@ -122,7 +123,7 @@
 
 
 
-  <div class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50 fade-in" id="editModal">
+ <div class="fixed inset-0 bg-black bg-opacity-40 hidden z-50 fade-in flex items-center justify-center" id="editModal">
     <div class="glass p-8 rounded-2xl shadow-3xl w-full max-w-md mx-auto slide-down border border-white border-opacity-30">
       <h3 class="text-2xl font-bold mb-5 text-center text-yellow-600">Edit Task</h3>
       <input type="hidden" id="editTaskId">
