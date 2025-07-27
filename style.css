@@ -85,9 +85,63 @@ body {
   color: #f9fafb;
   transition: all 0.2s ease-in-out;
 }
-/* Force left alignment for table */
-table th,
-table td {
-  text-align: left !important;
-  padding-left: 1.5rem; /* Optional: for better spacing */
+
+/* -------------------- TABLE STYLE FIXES -------------------- */
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
 }
+
+/* Header Style */
+th {
+  background-color: #e9d5ff;
+  padding: 16px 12px;
+  font-weight: 600;
+  color: #4b0082;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Data Cell Style */
+td {
+  padding: 14px 12px;
+  font-size: 14px;
+  color: #1f2937;
+  background-color: white;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Alternate Row */
+tr:nth-child(even) td {
+  background-color: #f9f9ff;
+}
+
+/* Hover Row Effect */
+tr:hover td {
+  background-color: #f3e8ff;
+}
+
+/* Action buttons alignment */
+td:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+/* table th:nth-child(7), table td:nth-child(7) { width: 15%; text-align: center; } */
+
+/* table th:nth-child(1), table td:nth-child(1) { width: 8%;  text-align: center; }   
+table th:nth-child(2), table td:nth-child(2) { width: 20%; text-align: center; }  
+table th:nth-child(3), table td:nth-child(3) { width: 20%; text-align: center; }  
+table th:nth-child(4), table td:nth-child(4) { width: 12%; text-align: center; }  
+table th:nth-child(5), table td:nth-child(5) { width: 15%; text-align: center; }
+table th:nth-child(6), table td:nth-child(6) { width: 15%; text-align: center; }  
+   */
