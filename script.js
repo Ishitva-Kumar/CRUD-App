@@ -72,11 +72,15 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
       <td class="py-2 px-4 border-b">${task.status}</td>
       <td class="py-2 px-4 border-b">${task.startDate}</td>
       <td class="py-2 px-4 border-b">${task.endDate}</td>
-      <td class="py-2 px-4 border-b">
-        <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded mr-1" onclick="editTask(${task.id})">Update</button>
-        <button class="bg-purple-500 hover:bg-purple-600 text-white px-2 py-1 rounded mr-1" onclick="openSubtaskModal(${task.id})">Add Subtask</button>
-        <button class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded" onclick="deleteTask(${task.id})">Delete</button>
-      </td>
+    <td class="py-2 px-4 border-b text-center">
+  <div class="flex justify-center items-center gap-2 whitespace-nowrap">
+    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" onclick="editTask(${task.id})">Update</button>
+    <button class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded" onclick="openSubtaskModal(${task.id})">Add Subtask</button>
+    <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded" onclick="deleteTask(${task.id})">Delete</button>
+  </div>
+</td>
+
+
     `;
     tbody.appendChild(row);
 
