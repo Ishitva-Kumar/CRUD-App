@@ -136,12 +136,25 @@ td:last-child {
   align-items: center;
   gap: 10px;
 }
-/* table th:nth-child(7), table td:nth-child(7) { width: 15%; text-align: center; } */
+@media (max-width: 1024px) {
+  th, td {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
 
-/* table th:nth-child(1), table td:nth-child(1) { width: 8%;  text-align: center; }   
-table th:nth-child(2), table td:nth-child(2) { width: 20%; text-align: center; }  
-table th:nth-child(3), table td:nth-child(3) { width: 20%; text-align: center; }  
-table th:nth-child(4), table td:nth-child(4) { width: 12%; text-align: center; }  
-table th:nth-child(5), table td:nth-child(5) { width: 15%; text-align: center; }
-table th:nth-child(6), table td:nth-child(6) { width: 15%; text-align: center; }  
-   */
+
+/* Keep table inside scrollable container */
+.responsive-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: scrollbar style for aesthetics */
+.responsive-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.responsive-table-wrapper::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
