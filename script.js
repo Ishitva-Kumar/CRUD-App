@@ -121,7 +121,7 @@ function closeSubtaskModal() {
   document.getElementById("subtaskStartDate").value = "";
   document.getElementById("subtaskEndDate").value = "";
   selectedSubtaskIndex = null;
-document.getElementById("subtaskSubmitBtn").innerText = "Add Subtask";
+
 
 }
 
