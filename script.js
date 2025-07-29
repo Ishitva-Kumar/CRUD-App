@@ -66,12 +66,12 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.filter(task => String(task[field]).toLowerCase().includes(search)).forEach(task => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td class="py-2 px-4 border-b">${task.id}</td>
-      <td class="py-2 px-4 border-b">${task.name}</td>
-      <td class="py-2 px-4 border-b"></td>
-      <td class="py-2 px-4 border-b">${task.status}</td>
-      <td class="py-2 px-4 border-b">${task.startDate}</td>
-      <td class="py-2 px-4 border-b">${task.endDate}</td>
+      <td class="py-2 px-4 border-b data-label">${task.id}</td>
+      <td class="py-2 px-4 border-b data-label">${task.name}</td>
+      <td class="py-2 px-4 border-b data-label"></td>
+      <td class="py-2 px-4 border-b data-label">${task.status}</td>
+      <td class="py-2 px-4 border-b data-label">${task.startDate}</td>
+      <td class="py-2 px-4 border-b data-label">${task.endDate}</td>
     <td class="py-2 px-4 border-b text-center">
   <div class="flex justify-center items-center gap-2 whitespace-nowrap">
     <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" onclick="editTask(${task.id})">Update</button>
@@ -89,13 +89,13 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     const subRow = document.createElement("tr");
     subRow.classList.add("bg-gray-100");
    subRow.innerHTML = `
-  <td class="py-2 px-4 border-b text-sm text-gray-600">${task.id}.${sub.id}</td>
-  <td class="py-2 px-4 border-b text-sm text-gray-600"></td>
-  <td class="py-2 px-4 border-b text-sm text-gray-600">↳ ${sub.name}</td>
-  <td class="py-2 px-4 border-b text-sm text-gray-600">${sub.status}</td>
-  <td class="py-2 px-4 border-b text-sm text-gray-600">${sub.startDate}</td>
-  <td class="py-2 px-4 border-b text-sm text-gray-600">${sub.endDate}</td>
-  <td class="py-2 px-4 border-b text-sm text-gray-600">
+  <td class="py-2 px-4 border-b text-sm text-gray-600 data-label">${task.id}.${sub.id}</td>
+  <td class="py-2 px-4 border-b text-sm text-gray-600 data-label"></td>
+  <td class="py-2 px-4 border-b text-sm text-gray-600 data-label">↳ ${sub.name}</td>
+  <td class="py-2 px-4 border-b text-sm text-gray-600 data-label">${sub.status}</td>
+  <td class="py-2 px-4 border-b text-sm text-gray-600 data-label">${sub.startDate}</td>
+  <td class="py-2 px-4 border-b text-sm text-gray-600 data-label">${sub.endDate}</td>
+  <td class="py-2 px-4 border-b text-sm text-gray-600 data-label">
     <button onclick="editSubtask(${task.id}, ${subIndex})" class="bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded mr-1">Update</button>
     <button onclick="deleteSubtask(${task.id}, ${subIndex})" class="bg-red-500 hover:bg-red-400 text-white px-2 py-1 rounded">Delete</button>
   </td>
