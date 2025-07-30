@@ -144,13 +144,12 @@ td:last-child {
 }
 
 
-/* Keep table inside scrollable container */
 .responsive-table-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* Optional: scrollbar style for aesthetics */
+
 .responsive-table-wrapper::-webkit-scrollbar {
   height: 6px;
 }
